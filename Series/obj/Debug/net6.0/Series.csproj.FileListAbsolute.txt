@@ -1,0 +1,15 @@
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.csproj.AssemblyReference.cache
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.AssemblyInfoInputs.cache
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.AssemblyInfo.cs
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.csproj.CoreCompileInputs.cache
+D:\ProjetoCRUD\Series\bin\Debug\net6.0\Series.exe
+D:\ProjetoCRUD\Series\bin\Debug\net6.0\Series.deps.json
+D:\ProjetoCRUD\Series\bin\Debug\net6.0\Series.runtimeconfig.json
+D:\ProjetoCRUD\Series\bin\Debug\net6.0\Series.dll
+D:\ProjetoCRUD\Series\bin\Debug\net6.0\ref\Series.dll
+D:\ProjetoCRUD\Series\bin\Debug\net6.0\Series.pdb
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.dll
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\ref\Series.dll
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.pdb
+D:\ProjetoCRUD\Series\obj\Debug\net6.0\Series.genruntimeconfig.cache
