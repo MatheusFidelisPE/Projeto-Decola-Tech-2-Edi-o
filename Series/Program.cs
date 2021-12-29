@@ -82,13 +82,23 @@ namespace Series
         }
         private static void InserirSerie()
         {   
+            int genero = 0;
+            List<int> generos = new List<int>();
+
             foreach (int i in Enum.GetValues(typeof(Genero)))
             {
                 Console.WriteLine($"{i} - {Enum.GetName(typeof(Genero),i)}");
             }
-            Console.Write("Informe o Gênero: ");
-            int genero = int.Parse(Console.ReadLine());
+            Console.Write("Informe os Gêneros [Digite 0 para sair]: ");
             
+            do{                
+                genero = int.Parse(Console.ReadLine());
+                if(genero >= 1 && genero <= 13)
+                {
+                    generos.Add(genero);
+                }
+            }while(genero != 0);
+
             Console.Write("Informe o Título: ");
             string titulo = Console.ReadLine();
 
@@ -99,7 +109,7 @@ namespace Series
             int ano = int.Parse(Console.ReadLine());
 
             Serie novaSerie = new Serie(Id: repositorio.ProximoId(),
-                                    genero:(Genero)genero,
+                                    genero: generos.ConvertAll<Genero>(x => (Genero)x),
                                     titulo: titulo,
                                     descricao: descricao,
                                     ano: ano);
@@ -108,17 +118,25 @@ namespace Series
         }
         private static void AtualizarSerie()
         {
+            int genero = 0;
+            List<int> generos = new List<int>();
             foreach (int i in Enum.GetValues(typeof(Genero)))
             {
                 Console.WriteLine($"{i} - {Enum.GetName(typeof(Genero),i)}");
             }
-
+           
+            Console.Write("Informe os Gêneros [Digite 0 para sair]: ");
+            do{                
+                genero = int.Parse(Console.ReadLine());
+                if(genero >= 1 && genero <= 13)
+                {
+                    generos.Add(genero);
+                }
+            }while(genero == 0);
+            
             Console.Write("Informe o Id: ");
             int idSerie = int.Parse(Console.ReadLine());
-            
-            Console.Write("Informe o Gênero: ");
-            int genero = int.Parse(Console.ReadLine());
-            
+
             Console.Write("Informe o Título: ");
             string titulo = Console.ReadLine();
 
@@ -129,7 +147,7 @@ namespace Series
             int ano = int.Parse(Console.ReadLine());
 
             Serie novaSerie = new Serie(Id: idSerie,
-                                    genero:(Genero)genero,
+                                    genero:generos.ConvertAll<Genero>(x => (Genero)x),
                                     titulo: titulo,
                                     descricao: descricao,
                                     ano: ano);
