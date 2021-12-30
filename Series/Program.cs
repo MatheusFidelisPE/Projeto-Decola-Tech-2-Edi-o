@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using Series.Classes;
 using Series.Enums;
 
@@ -7,9 +9,23 @@ namespace Series
 {
     public class Program
     {
-        static SerieRepositorio repositorio = new SerieRepositorio();
+        
         public static void Main(string[] args)
         {   
+            SerieRepositorio repositorio;   
+
+            if(!File.Exists("MyFile.bin"))
+            {
+                repositorio = new SerieRepositorio();
+            }
+            else
+            {
+                IFormatter formatter = new BinaryFormatter();  
+                Stream stream = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);  
+                repositorio = (SerieRepositorio) formatter.Deserialize(stream);  
+                stream.Close();  
+            }
+
             Console.Write("INICIANDO PROGRAMA\nINFORME SEU NOME: ");
             string nome = Console.ReadLine();
             string opcaoUsuario = "";
@@ -19,27 +35,36 @@ namespace Series
                 switch(opcaoUsuario)
                 {
                     case "1":
-                        ListarSeries();
+                        ListarSeries(repositorio);
                         break;
                     case "2":
-                        InserirSerie();
+                        InserirSerie(repositorio);
                         break;
                     case "3":
-                        AtualizarSerie();
+                        AtualizarSerie(repositorio);
                         break;
                     case "4":
-                        ExcluirSerie();
+                        ExcluirSerie(repositorio);
                         break;
                     case "5":
-                        VisualizarSerie();
+                        VisualizarSerie(repositorio);
                         break;
                     case "S":
+                        Salvar(repositorio);
                         return;
                     default:
                         Console.Clear();
                         break;
                 }
             }
+        }
+
+        private static void Salvar(SerieRepositorio repositorio)
+        {
+            IFormatter formatter = new BinaryFormatter();  
+            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);  
+            formatter.Serialize(stream, repositorio);  
+            stream.Close();  
         }
         private static string MenuEscolha(string nome)
         {      
@@ -60,7 +85,7 @@ namespace Series
             string escolhaUsuario = Console.ReadLine().ToUpper();
             return escolhaUsuario;
         }
-        private static void ListarSeries()
+        private static void ListarSeries(SerieRepositorio repositorio)
         {
             Console.WriteLine("-=-=-=-=-=-=-=-=LISTAR SÉRIES-=-=-=-=-=-=-=-=");
 
@@ -74,13 +99,13 @@ namespace Series
                 foreach (var item in listagem)
                 {
                     Console.WriteLine("----------------------------------");
-                    Console.WriteLine($"Título: {item.RetornaTitulo()}");
+                    Console.WriteLine($"Id: {item.RetornaId()}\nTítulo: {item.RetornaTitulo()}");
                     Console.WriteLine("----------------------------------");
                 }
             }
             Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         }
-        private static void InserirSerie()
+        private static void InserirSerie(SerieRepositorio repositorio)
         {   
             int genero = 0;
             List<int> generos = new List<int>();
@@ -116,7 +141,7 @@ namespace Series
 
             repositorio.Insere(novaSerie);
         }
-        private static void AtualizarSerie()
+        private static void AtualizarSerie(SerieRepositorio repositorio)
         {
             int genero = 0;
             List<int> generos = new List<int>();
@@ -154,7 +179,7 @@ namespace Series
 
             repositorio.Atualiza(idSerie,novaSerie);
         }
-        private static void ExcluirSerie()
+        private static void ExcluirSerie(SerieRepositorio repositorio)
         {   
             bool existe = false;
             Console.Write("Informe o Id da série a ser excluída: ");
@@ -179,7 +204,7 @@ namespace Series
                 repositorio.Exclui(id);
             }
         }
-        private static void VisualizarSerie()
+        private static void VisualizarSerie(SerieRepositorio repositorio)
         {
             Console.Write("Informe o Id: ");
             int id = int.Parse(Console.ReadLine());
@@ -187,5 +212,7 @@ namespace Series
             Serie serie = repositorio.RetornaPorId(id);
             Console.WriteLine(serie);
        }
+    
+        
     }
 }

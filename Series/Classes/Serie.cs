@@ -2,6 +2,7 @@ using Series.Enums;
 
 namespace Series.Classes
 {
+    [Serializable]
     public class Serie : EntidadeBase
     {
         private List<Genero> Genero { get; set; }
@@ -44,6 +45,18 @@ namespace Series.Classes
         {   
             this.Excluido = true;
         }
+        public string getDescricao()
+        {
+            return this.Descricao;
+        }
+        public int getAno()
+        {
+            return this.Ano;
+        }
+        public string getGeneros()
+        {
+            return this.RetornarGeneros();
+        }
         private string RetornarGeneros()
         {
             string retorno = "";
@@ -54,6 +67,5 @@ namespace Series.Classes
             }
             return retorno;
         }
-
     }
 }

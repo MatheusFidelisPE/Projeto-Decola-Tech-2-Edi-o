@@ -2,8 +2,9 @@ using Series.Interfaces;
 
 namespace Series.Classes
 {
+    [Serializable]
     public class SerieRepositorio : IRepositorio<Serie>
-    {
+    {   
         private List<Serie> listaSerie = new List<Serie>();
         public void Atualiza(int id, Serie entidade)
         {
@@ -37,5 +38,6 @@ namespace Series.Classes
         {
             return listaSerie[id];
         }
+    
     }
 }
