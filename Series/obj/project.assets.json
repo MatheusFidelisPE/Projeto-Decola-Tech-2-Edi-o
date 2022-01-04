@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ProjetoCRUD\\Series\\Series.csproj",
+      "projectUniqueName": "D:\\CatalogSeriesFilmes\\Projeto-Decola-Tech-2-Edi-o\\Series\\Series.csproj",
       "projectName": "Series",
-      "projectPath": "D:\\ProjetoCRUD\\Series\\Series.csproj",
+      "projectPath": "D:\\CatalogSeriesFilmes\\Projeto-Decola-Tech-2-Edi-o\\Series\\Series.csproj",
       "packagesPath": "C:\\Users\\fidel\\.nuget\\packages\\",
-      "outputPath": "D:\\ProjetoCRUD\\Series\\obj\\",
+      "outputPath": "D:\\CatalogSeriesFilmes\\Projeto-Decola-Tech-2-Edi-o\\Series\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fidel\\AppData\\Roaming\\NuGet\\NuGet.Config"

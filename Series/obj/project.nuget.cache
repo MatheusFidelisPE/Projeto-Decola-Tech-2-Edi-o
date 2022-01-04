@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kmxK2FLyCDgIX9ikSICHExTHyVyZ0QqKzKg+/nyhD/qC7OMVueFoJLM4CilBk4Vtze92FeayXVvmxtDuNkNGxQ==",
+  "dgSpecHash": "ZKxLAivNeLiGRoFv9ANGQSJuODsaXkMAvARnWU+rfZ3Hxatiav17fqjBiQh7d1Y2ThqX2pLdJUZHYao3kX3CVg==",
   "success": true,
-  "projectFilePath": "D:\\ProjetoCRUD\\Series\\Series.csproj",
+  "projectFilePath": "D:\\CatalogSeriesFilmes\\Projeto-Decola-Tech-2-Edi-o\\Series\\Series.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

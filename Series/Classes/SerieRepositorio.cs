@@ -20,15 +20,16 @@ namespace Series.Classes
         }
         public List<Serie> Lista()
         {
-            List<Serie> listandoSeries = new List<Serie>();
+            /*List<Serie> listandoSeries = new List<Serie>();
             foreach (var item in listaSerie)
             {
                 if(!item.RetornaExcluido())
                 {
                     listandoSeries.Add(item);
                 }
-            }
-            return listandoSeries;
+            }*/
+            return listaSerie.FindAll(x => x.RetornaExcluido() == false);
+            //return listandoSeries;
         }
         public int ProximoId()
         {
